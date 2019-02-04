@@ -23,6 +23,8 @@ Route::post('/addCategory', "CategoryController@saveCategory");
 
 Route::resource('movies', "MoviesController");
 
+Route::resource('users', "UsersController");
+
 // Route::get('/category/{id}', "CategoryController@findItems");
 
 

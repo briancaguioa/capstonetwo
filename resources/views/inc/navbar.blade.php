@@ -23,7 +23,7 @@
             </li>
               @if (Auth::user()->roles_id == "2" )
                 <li class="nav-item">
-                  <a class="nav-link" href="/">Users</a>
+                  <a class="nav-link" href="/users">Users</a>
                 </li>
               @endif
             @endif

@@ -25,13 +25,14 @@
                             <div class="card-body">
                                 <h5 class="card-title ">{{ $movie->name }}</h5>
                                 <p>{{ $movie->description }}</p>
-                                <p>{{ $category->name }}</p>
+                                {{-- <p>{{ $category->name }}</p> --}}
                                 <p>{{\App\Category::find($movie->category_id)->name}}</p>
                                     {{-- {{dd($category->id)}} --}}
-                                <input type="number" name="quantity" id="quantity_{{$movie->id}}" class="form-control">
+                                @if (Auth::user()->roles_id == "1" )
+                                    <input type="number" name="quantity" id="quantity_{{$movie->id}}" class="form-control">
 
-                                <button type="button" class="btn btn-block btn-outline-success" onclick="addToCart({{$movie->id}})">Add to List</button>
-
+                                    <button type="button" class="btn btn-block btn-outline-success" onclick="addToCart({{$movie->id}})">Add to List</button>
+                                @endif
                                 <a href="/movies/{{ $movie->id }}/" class="btn btn-block bg-primary text-white"> View Details <i class="fas fa-eye"></i></a>
                           </div>
                         </div>
