@@ -19,7 +19,10 @@
               <a class="nav-link" href="/movies">Movies</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/">Request</a>
+              <a class="nav-link" href="/mycart">Request</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/mycart">Status</a>
             </li>
               @if (Auth::user()->roles_id == "2" )
                 <li class="nav-item">

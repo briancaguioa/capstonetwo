@@ -24,7 +24,7 @@
             <td>
                  <a href="/users/{{$user->id}}/edit" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
 
-                 <button class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete"><i class="far fa-trash-alt"></i> Delete</button>
+                 <button class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete"><i class="far fa-trash-alt"></i> Deactivate</button>
                  <div class="modal fade" id="confirmDelete" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">

@@ -21,10 +21,19 @@ Route::post('/addCategory', "CategoryController@saveCategory");
 //movie form and add movie
 // Route::get('/addMovies', "MoviesController@showAddMovieForm");
 
+
 Route::resource('movies', "MoviesController");
 
+Route::get('/menu/mycart/{id}/delete', "CartController@deleteCart"); 
+Route::get('/menu/clearcart', "CartController@clearCart");
+Route::patch('/menu/mycart/{id}/changeQty', "CartController@updateCart");
+   
 Route::resource('users', "UsersController");
+// Route::post('/addToCart/{id}', "CartController@store");
 
+Route::get('/mycart', "CartController@showCart"); 
+// Route::get('/categories/{id}', "CategoryController@findItems"); 
+Route::post('/addToCart/{id}',"CartController@addToCart");     
 // Route::get('/category/{id}', "CategoryController@findItems");
 
 
