@@ -1,8 +1,9 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="{{ url('/home') }}">
-        {{ config('app.name', 'Laravel') }}
+    <a class="navbar-brand" href="{{ url('/movies') }}">
+        <img src="{{ asset('images/film.png') }}" class="" alt="" style="width: 50px; height: 40px">
+        {{ config('app.name', 'Moviethon') }}
     </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
           <span class="navbar-toggler-icon"></span>
@@ -13,16 +14,18 @@
         <ul class="navbar-nav mr-auto">
           @if(!Auth::guest())  
             <li class="nav-item">
-              <a class="nav-link" href="/home">Home</a>
+              <a class="nav-link" href="/movies">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/movies">Movies</a>
             </li>
+             @if (Auth::user()->roles_id == "1" )
             <li class="nav-item">
               <a class="nav-link" href="/mycart">Request</a>
             </li>
+            @endif
             <li class="nav-item">
-              <a class="nav-link" href="/mycart">Status</a>
+              <a class="nav-link" href="/orders">Status</a>
             </li>
               @if (Auth::user()->roles_id == "2" )
                 <li class="nav-item">

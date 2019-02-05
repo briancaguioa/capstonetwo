@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
+use App\Order;
+use Auth;
 use Session;
 
 class CartController extends Controller
@@ -75,4 +77,24 @@ class CartController extends Controller
         return redirect("/mycart");
     }
 
+     public function checkout() {
+        $order = new Order;
+        //we need to make sure that the user thats trying to check out is logged in. else we would encounter an error with Auth::user
+
+        $total=0;
+        foreach(Session::get('cart') as $item_id => $quantity) {
+            $total += $quantity;
+        }
+
+        $order->user_id = Auth::user()->id;
+        $order->quantity = $total;
+        $order->status_id = 1; //all orders should have a default status pending
+        
+        //creat a new order
+        $order->save();
+
+        //remove the surrent session cart and return to catalog
+        Session::forget('cart');
+        return redirect("/mycart");
+    }
 }

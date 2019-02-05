@@ -9,6 +9,9 @@
 
     <title>{{ config('app.name', 'moviethon') }}</title>
 
+    {{-- favicon --}}
+    <link rel="icon" type="image/gif/png" href="images/download.jpg">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -18,14 +21,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
 </head>
 <body>
     <div id="app">
         @include('inc.navbar')
+
         <div class="container">
             @include('inc.messages')
             
-            <main class="py-4">
+            <main class="py-3">
                 @yield('content')
             </main>
         </div>

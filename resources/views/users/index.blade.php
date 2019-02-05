@@ -5,7 +5,6 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Address</th>
@@ -16,7 +15,6 @@
     @foreach($users as $user)
     <tbody>
         <tr>
-             <th scope="row">1</th>
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>{{$user->address}}</td>
@@ -30,10 +28,10 @@
                         <div class="modal-content">
 
                             <div class="modal-header">
-                                <h4>Confirm Delete</h4>
+                                <h4>Confirm Deactivate</h4>
                             </div>
                             <div class="modal-body">
-                                <p>Are you sure you want to dealete this movie?</p>
+                                <p>Are you sure you want to deactivate this movie?</p>
                             </div>
                             <din class="modal-footer">
                                 <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>

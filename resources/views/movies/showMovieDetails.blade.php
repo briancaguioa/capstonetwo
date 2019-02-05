@@ -1,18 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                
-            	<h1>{{$movie->name}}</h1>
-
-                <p>Movie Name: {{ $movie->name }}</p>
-                <p>Movie Description: {{ $movie->description }}</p>
+<div class="row">
+    <div class="col-md-8 offset-md-3">
+                <p class=""><h2>Movie Name: {{ $movie->name }}</h2></p>
+                <p><h4>Movie Description: {{ $movie->description }}</h4></p>
                 <p>
-                   {{$category->name}} {{-- getting single value --}}
+                   Category: {{$category->name}} {{-- getting single value --}}
                 </p>
-                <img src="/{{ $movie->image_path }}" class="img-fluid d-block mb-3 rounded">
                 @if(!Auth::guest())
                     @if (Auth::user()->roles_id == "2" )
                         <a href="/movies/{{$movie->id}}/edit" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
@@ -29,7 +24,7 @@
                                 <h4>Confirm Delete</h4>
                             </div>
                             <div class="modal-body">
-                                <p>Are you sure you want to dealete this movie?</p>
+                                <p>Are you sure you want to delete this movie?</p>
                             </div>
                             <din class="modal-footer">
                                 <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
@@ -42,14 +37,15 @@
                         </div>
                     </div>
                 </div>
+                 <img src="/{{ $movie->image_path }}" class="img-fluid d-block mt-3 rounded">
                
             </div>
 
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </div>
+</div>       
 
-           
-        </div>
    
 @endsection

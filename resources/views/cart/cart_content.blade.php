@@ -1,5 +1,8 @@
+@extends('layouts.app')
+
 @section('title', 'mycart')
 
+@section('content')
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,12 +76,10 @@
 				<a href="/menu/clearcart" class="btn btn-outline-danger mb-3"><i class="far fa-trash-alt"></i> Clear list</a>
 
 			@else
-			<div class="container">
-				<h4>Your cart is empty</h4>
-			</div>
+				<h4 class="text-center">Your cart is empty</h4>
 			@endif
 			<div class="container">
-				<a href="/movies" class="btn btn-primary"><i class="fas fa-chevron-left"></i> Go back to movies</a>
+				<a href="/movies" class="btn btn-primary float-right"><i class="fas fa-chevron-left"></i> Go back to movies</a>
 			</div>
 		</div> 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -87,5 +88,4 @@
 
 </body>
 </html>
-
-
+@endsection

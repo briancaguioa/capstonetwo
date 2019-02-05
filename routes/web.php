@@ -17,24 +17,25 @@ Route::get('/', function () {
 
 
 //category form and add movie
-Route::post('/addCategory', "CategoryController@saveCategory");
 //movie form and add movie
 // Route::get('/addMovies', "MoviesController@showAddMovieForm");
 
 
-Route::resource('movies', "MoviesController");
 
-Route::get('/menu/mycart/{id}/delete', "CartController@deleteCart"); 
 Route::get('/menu/clearcart', "CartController@clearCart");
 Route::patch('/menu/mycart/{id}/changeQty', "CartController@updateCart");
-   
-Route::resource('users', "UsersController");
-// Route::post('/addToCart/{id}', "CartController@store");
-
-Route::get('/mycart', "CartController@showCart"); 
-// Route::get('/categories/{id}', "CategoryController@findItems"); 
+Route::get('/mycart', "CartController@showCart");  
 Route::post('/addToCart/{id}',"CartController@addToCart");     
-// Route::get('/category/{id}', "CategoryController@findItems");
+// Route::get('menu/categories/{id}', "CategoryController@findItems");
+
+Route::middleware("auth")->group(function() {
+	Route::post('/addCategory', "CategoryController@saveCategory");
+	Route::resource('movies', "MoviesController");
+	Route::resource('orders', "OrderController");
+	Route::get('/menu/mycart/{id}/delete', "CartController@deleteCart"); 
+	Route::resource('users', "UsersController");
+	Route::get("/checkout", "CartController@checkout");
+});
 
 
 Auth::routes();

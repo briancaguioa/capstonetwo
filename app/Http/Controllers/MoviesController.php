@@ -22,7 +22,7 @@ class MoviesController extends Controller
         // $movies = Movie::orderBy('created_at', 'desc')->take(1)->get();
         // $movies = Movie::orderBy('created_at', 'desc')->get(); //eloquent that fetch all data in this date or in this table
         $categories = Category::all();
-        $movies = Movie::orderBy('created_at', 'desc')->paginate(10);
+        $movies = Movie::all();
         return view('movies.index', compact('categories', 'movies'));
         // return view('movies.index')->with('movies', $movies);
     }

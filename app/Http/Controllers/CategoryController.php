@@ -4,18 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Movie;
+use DB;
 
 class CategoryController extends Controller
 {
-    // public function findItems($id) {
+    //  public function findItems($id) {
     //     $category = Category::find($id);
-    //     $movies = $category->movies; //this enables us to select all movies for that category
+    //     $movies = $category->movies; //this enables us to select all items for that category
 
-    //     // dd($category);
+    //     dd($category);
 
     //     return view('movies.index', compact('movies'));
         
-    // }
+    // }   
 
     public function saveCategory(Request $request){
         // dd($request);
